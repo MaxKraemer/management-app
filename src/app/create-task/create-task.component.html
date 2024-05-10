@@ -1,0 +1,38 @@
+<div class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
+    <div class="task-title">
+        <h1>Create Task</h1>
+    </div>
+    <div class="bg-white border border-4 rounded-lg shadow relative m-10">
+        <div class="p-6 space-y-6">
+            <form action="#">
+                <div class="grid grid-cols-6 gap-6">
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="product-name" class="text-sm font-medium text-gray-900 block mb-2">Task Name</label>
+                        <input type="text" name="product-name" id="product-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Task Name" required="">
+                    </div>
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Select an option</label>
+                            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black">
+                                <option selected>Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                    </div>
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="price" class="text-sm font-medium text-gray-900 block mb-2">Date</label>
+                        <input type="date" name="date" id="date" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Date" required="">
+                    </div>
+                    <div class="col-span-full">
+                        <label for="product-details" class="text-sm font-medium text-gray-900 block mb-2">Description</label>
+                        <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    
+        <div class="p-6 border-t border-gray-200 rounded-b">
+            <button class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit">Save</button>
+        </div>
+    </div>
+</div>
