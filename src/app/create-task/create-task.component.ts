@@ -27,20 +27,22 @@ taskForm = new FormGroup({
 });
 
 createTasks() {
-  if (this.taskForm.valid) {
-    let taskData = this.taskForm.value;
-    let task: Task = {
-      id: Number(taskData.id),
-      name: taskData.name ?? '',
-      description: taskData.description ?? '',
-      dueDate: taskData.dueDate ?? '',
-      priority: taskData.priority ?? ''
-    };
-    this.taskService.addTask(task);
-    localStorage.setItem('tasks', JSON.stringify(this.taskService.getTasks()));
-    this.router.navigate(['/dashboard']);
-  } else {
-    alert('Please fill all the fields');
+    if (this.taskForm.valid) {
+        let taskData = this.taskForm.value;
+        let task: Task = {
+            id: Number(taskData.id),
+            name: taskData.name ?? '',
+            description: taskData.description ?? '',
+            dueDate: taskData.dueDate ?? '',
+            priority: taskData.priority ?? ''
+        };
+        this.taskService.addTask(task);
+        // Get tasks from task service and store in localStorage
+        let tasks = this.taskService.getTasks();
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        this.router.navigate(['/dashboard']);
+    } else {
+        alert('Please fill all the fields');
+    }
   }
-}
 }
