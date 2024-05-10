@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Task } from '../task';
 import { Router } from '@angular/router';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-create-task',
@@ -15,7 +16,7 @@ export class CreateTaskComponent {
 
   tasks: Task[] = [];
 
-constructor(private router: Router) { }
+constructor(private router: Router , private taskService: TaskService ) { }
 
 taskForm = new FormGroup({
     id: new FormControl(''),
@@ -25,20 +26,21 @@ taskForm = new FormGroup({
     priority: new FormControl('')
 });
 
-createTask() {
+createTasks() {
   if (this.taskForm.valid) {
-    const newTask: Task = {
-      id: Number(this.taskForm.value.id), 
-      name: this.taskForm.value.name ?? '',
-      description: this.taskForm.value.description ?? '',
-      dueDate: this.taskForm.value.dueDate ?? '',
-      priority: this.taskForm.value.priority ?? ''
+    let taskData = this.taskForm.value;
+    let task: Task = {
+      id: Number(taskData.id),
+      name: taskData.name ?? '',
+      description: taskData.description ?? '',
+      dueDate: taskData.dueDate ?? '',
+      priority: taskData.priority ?? ''
     };
-    this.tasks.push(newTask);
+    this.taskService.addTask(task);
+    localStorage.setItem('tasks', JSON.stringify(this.taskService.getTasks()));
     this.router.navigate(['/dashboard']);
-    console.log(this.tasks, 'tasks');
-    } else {
-     alert('Please fill all the fields');
-    }
+  } else {
+    alert('Please fill all the fields');
+  }
 }
 }
