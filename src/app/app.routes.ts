@@ -6,7 +6,8 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 
 export const routes: Routes = [
     { path: '', component: DashboardComponent },
-    { path: 'create-task', component: CreateTaskComponent}
+    { path: 'create-task', component: CreateTaskComponent},
+    { path: 'dashboard', component: DashboardComponent },
 
    
 ];

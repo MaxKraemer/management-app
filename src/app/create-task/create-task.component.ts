@@ -37,8 +37,8 @@ createTask() {
     this.tasks.push(newTask);
     this.router.navigate(['/dashboard']);
     console.log(this.tasks, 'tasks');
-  } else {
-    alert('Please fill all the fields');
-  }
+    } else {
+     alert('Please fill all the fields');
+    }
 }
 }
