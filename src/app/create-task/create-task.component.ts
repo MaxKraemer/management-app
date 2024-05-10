@@ -37,7 +37,6 @@ createTasks() {
             priority: taskData.priority ?? ''
         };
         this.taskService.addTask(task);
-        // Get tasks from task service and store in localStorage
         let tasks = this.taskService.getTasks();
         localStorage.setItem('tasks', JSON.stringify(tasks));
         this.router.navigate(['/dashboard']);
